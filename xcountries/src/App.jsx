@@ -12,9 +12,10 @@ function App() {
       const ans = await fetchData();
       setInfo(ans);
     } catch (e) {
-      console.error("Error fetching data:");
-      setInfo([]);
+      const errorMessage = "Error fetching data:";
+      console.error(errorMessage, e);
       setError("Failed to load data.");
+      setInfo([]);
     }
   };
 
