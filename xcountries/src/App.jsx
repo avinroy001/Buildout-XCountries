@@ -7,15 +7,17 @@ function App() {
   const [info, setInfo] = useState([]);
   const [error, setError] = useState(null);
 
-  const getData = async () => {
+    const getData = async () => {
     try {
       const ans = await fetchData();
       setInfo(ans);
     } catch (e) {
       console.log(e);
+      setInfo([]); 
       setError('Failed to load data.');
     }
   };
+
 
   useEffect(() => {
     getData();
