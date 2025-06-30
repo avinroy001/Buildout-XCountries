@@ -8,15 +8,17 @@ function App() {
   const [error, setError] = useState(null);
 
     const getData = async () => {
-    try {
-      const ans = await fetchData();
-      setInfo(ans);
-    } catch (e) {
-      console.error("Error fetching data:", e);
-      setInfo([]); 
-      setError('Failed to load data.');
-    }
-  };
+  try {
+    const ans = await fetchData();
+    setInfo(ans);
+  } catch (e) {
+    console.error("Error fetching data:"); 
+    console.error(e); 
+    setInfo([]);
+    setError("Failed to load data.");
+  }
+};
+
 
 
   useEffect(() => {
