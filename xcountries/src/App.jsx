@@ -24,19 +24,20 @@ function App() {
   }, []);
 
   return (
-    <>
-      {error && <p className="error">{error}</p>}
-      {info.length ? (
-        <div className="card">
-          {info.map((el) => (
-            <Card data={el} key={el.abbr} />
-          ))}
-        </div>
-      ) : (
-        !error && <p>Loading...</p>
-      )}
-    </>
-  );
+  <>
+    {error && <p className="error">{error}</p>}
+    {Array.isArray(info) && info.length ? (
+      <div className="card">
+        {info.map((el) => (
+          <Card data={el} key={el.abbr} />
+        ))}
+      </div>
+    ) : (
+      !error && <p>Loading...</p>
+    )}
+  </>
+);
+
 }
 
 export default App;
