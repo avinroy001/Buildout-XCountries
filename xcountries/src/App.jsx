@@ -1,33 +1,40 @@
-import { useState ,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Card from './Card';
-import './App.css'
-import {fetchData} from './api'
-function App() {
-    let [info,setInfo]=useState([]);
+import './App.css';
+import { fetchData } from './api';
 
-    const getdata=async ()=>{
-      try{
-        const ans=await fetchData();
-        setInfo(ans)
-      }catch(e){
-        console.log(e);
-      }
+function App() {
+  const [info, setInfo] = useState([]);
+  const [error, setError] = useState(null);
+
+  const getData = async () => {
+    try {
+      const ans = await fetchData();
+      setInfo(ans);
+    } catch (e) {
+      console.log(e);
+      setError('Failed to load data.');
     }
-    useEffect(()=>{
-      getdata();
-    },[]);
-    console.log(info);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
-      {info.length ?(<div className='card'>
-        {
-          info.map((el)=> (
-            <Card data={el} key={el.ccn3}/>
-          ))
-        }
-      </div>):(<></>)}
+      {error && <p className="error">{error}</p>}
+      {info.length ? (
+        <div className="card">
+          {info.map((el) => (
+            <Card data={el} key={el.abbr} />
+          ))}
+        </div>
+      ) : (
+        !error && <p>Loading...</p>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

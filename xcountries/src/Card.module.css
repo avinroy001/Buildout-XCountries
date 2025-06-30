@@ -1,27 +1,27 @@
-.wrapper{
-    width: 150px;
-    height: 150px;
-    border: 2px solid black;
-    border-radius: 14px;
+.wrapper {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  border-radius: 14px;
 }
-.flag{
-    width: 80px;
-    height: 80px;
-    margin: 5px 33px;
-    /* background-color: aqua; */
-    overflow: hidden;
-    img{
-        width: 100%;
-    height: 100%;
-    object-fit: contain;
-    }
+
+.flag {
+  width: 80px;
+  height: 80px;
+  margin: 5px auto;
+  overflow: hidden;
 }
-.cname{
-    width: 135px;
-    height: 40px;
-    margin: 5px 5px;
-    /* background-color: bisque; */
-    overflow: scroll;
-    text-align: center;
-    
+
+.flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cname {
+  width: 135px;
+  height: 40px;
+  margin: 5px auto;
+  overflow: auto;
+  text-align: center;
 }
