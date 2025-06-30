@@ -12,7 +12,7 @@ function App() {
       const ans = await fetchData();
       setInfo(ans);
     } catch (e) {
-      console.log(e);
+      console.error("Error fetching data:", e);
       setInfo([]); 
       setError('Failed to load data.');
     }
